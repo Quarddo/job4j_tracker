@@ -7,8 +7,6 @@ public class DummyDic {
     }
 
     public String engToRus(String eng) {
-        DummyDic dunno = new DummyDic();
-        eng = dunno.english();
         return ("Неизвестное слово " + eng);
     }
 
