@@ -8,7 +8,7 @@ public class Jukebox {
             System.out.println("Пусть бешут неуклюже");
         } else if (position == 2) {
                 System.out.println("Спокойной ночи");
-        } else if (position != 1 && position != 2) {
+        } else {
                 System.out.println("Песня не найдена");
             }
         }
