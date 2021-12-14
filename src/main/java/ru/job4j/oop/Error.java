@@ -12,10 +12,6 @@ public class Error {
     }
 
     public Error() {
-        Error error = new Error(true, 5, "Готов к использованию");
-        error.printInfo();
-        Error error1 = new Error(active, status, message);
-        error1.printInfo();
     }
 
     public static void main(String[] args) {
