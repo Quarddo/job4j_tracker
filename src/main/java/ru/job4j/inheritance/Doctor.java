@@ -8,3 +8,4 @@ public class Doctor extends Profession {
         this.diagnosis = diagnosis;
     }
 }
+

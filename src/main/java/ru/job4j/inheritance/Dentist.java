@@ -8,3 +8,4 @@ public class Dentist extends Doctor {
         this.anesthesia = anesthesia;
     }
 }
+
