@@ -11,4 +11,3 @@ public class StartUI {
         System.out.println(created.format(formatter));
     }
 }
-
