@@ -22,9 +22,9 @@ public class Library {
         System.out.println(System.lineSeparator() + "Вывод книг с именем \"Clean code\".");
         for (int i = 0; i < books.length; i++) {
             Book prt = books[i];
-            if (prt.getName().equals("Clean code")) {
-             System.out.println("Книга " + prt.getName() + " имеет " + prt.getCountPage() + " страниц.");
-            }
+           if ("Clean code".equals(prt.getName())) {
+               System.out.println("Книга " + prt.getName() + " имеет " + prt.getCountPage() + " страниц.");
+           }
         }
     }
 }
