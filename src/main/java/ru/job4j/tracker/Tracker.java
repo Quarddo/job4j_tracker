@@ -19,7 +19,7 @@ public class Tracker {
         for (int i = 0; i < rsl.length; i++) {
             Item item = items[i];
             if (item.getName() != null) {
-                rst[size] = item;
+                rst[i] = item;
                 size++;
             }
         }
@@ -33,7 +33,7 @@ public class Tracker {
         for (int i = 0; i < rsl.length; i++) {
             Item item = items[i];
             if (item.getName() == key) {
-                rst[size] = item;
+                rst[i] = item;
                 size++;
             }
         }
