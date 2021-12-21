@@ -63,4 +63,18 @@ public class Tracker {
         }
         return false;
     }
+
+    public boolean delete(int id) {
+        int index = indexOf(id);
+        if (index != -1) {
+            int start = index + 1;
+            Item rst = items[index];
+            int distPos = index;
+            int length = size - index - 1;
+            items[size - 1] = null;
+            size--;
+            return true;
+        }
+        return false;
+    }
 }
