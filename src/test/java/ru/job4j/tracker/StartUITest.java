@@ -43,8 +43,8 @@ public class StartUITest {
                 "delete item"
         };
         StartUI.deleteItem(new StubInput(answer), tracker);
-        Item deleted = tracker.findById(item.getId());
+        Item deleted = null;
         Item expected = new Item(null);
-        assertThat(deleted.getName(), is(expected.getName()));
+        assertThat(deleted, is(expected.getName()));
     }
 }
