@@ -37,6 +37,7 @@ public class StartUITest {
         new StartUI().init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(editedName));
     }
+
     @Test
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
