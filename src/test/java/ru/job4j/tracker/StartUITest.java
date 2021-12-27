@@ -26,12 +26,9 @@ public class StartUITest {
     public void whenEditItem() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Edited item"));
-        String[] answer = {
-                String.valueOf(item.getId())
-        };
         String editedName = "New item name";
         Input in = new StubInput(
-                new String[] {"0", editedName, "1"}
+                new String[] {"0", String.valueOf(item.getId()), editedName, "1"}
         );
         UserAction[] actions = {
                 new EditAction(),
@@ -45,10 +42,10 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
         String[] answer = {
-                String.valueOf(item.getId())
+
         };
         Input in = new StubInput(
-                new String[] {"0", null, "1"}
+                new String[] {"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
                 new DeleteAction(),
