@@ -9,28 +9,28 @@ import static org.hamcrest.Matchers.nullValue;
 public class StartUITest {
 
     @Test
-    public void whenReplaceItemTestOutputIsSuccessfully() {
+    public void whenEditItemTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
-        String createName = "New Test Name";
+        String editName = "New Test Name";
         Input in = new StubInput(
-                new String[]{"0", String.valueOf(one.getId()), createName, "1"}
+                new String[]{"0", String.valueOf(one.getId()), editName, "1"}
         );
         UserAction[] actions = new UserAction[]{
-                new CreateAction(out),
+                new EditAction(out),
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
                 "Menu:" + ln
-                        + "0. Edit item" + ln
+                        + "0. Edit Item" + ln
                         + "1. Exit Program" + ln
                         + "=== Edit item ===" + ln
                         + "Заявка изменена успешно." + ln
                         + "Menu:" + ln
-                        + "0. Edit item" + ln
+                        + "0. Edit Item" + ln
                         + "1. Exit Program" + ln
         ));
     }
@@ -126,8 +126,8 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu:" + System.lineSeparator() +
-                        "0. Exit Program" + System.lineSeparator()
+                "Menu:" + System.lineSeparator()
+                        + "0. Exit Program" + System.lineSeparator()
         ));
     }
 }
