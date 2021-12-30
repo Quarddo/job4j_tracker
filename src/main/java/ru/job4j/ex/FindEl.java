@@ -18,8 +18,8 @@ public class FindEl {
     public static void main(String[] args) {
         try {
             System.out.println(FindEl.indexOf(new String[]{"One", "Two", "Three"}, "Five"));
-        } catch (Exception e) {
-            System.out.println("Элемент не найден");
+        } catch (ElementNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }
