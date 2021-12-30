@@ -7,11 +7,8 @@ public class UserStore {
             if (login.equals(user.getUsername())) {
                 return user;
             }
-            if (!login.equals(user.getUsername())) {
-                throw new UserNotFoundException("Пользователь не найден");
-            }
         }
-        return null;
+        throw new UserNotFoundException("Пользователь не найден");
     }
 
     public static boolean validate(User user) throws UserInvalidException {
