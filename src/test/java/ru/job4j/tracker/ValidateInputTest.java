@@ -40,7 +40,7 @@ public class ValidateInputTest {
         int[] selected = {input.askInt("Enter menu:"),
                 input.askInt("Enter menu:")
         };
-        int[] expected = new int []{0, 1};
+        int[] expected = new int[]{0, 1};
         assertThat(selected, is(expected));
     }
 
