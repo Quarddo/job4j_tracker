@@ -9,7 +9,7 @@ public class ConvertList {
         List<Integer> rsl = new ArrayList<>();
         for (int[] row : list) {
             for (int cell : row) {
-                rsl.addAll(Arrays.asList(cell));
+                rsl.add(cell);
             }
         }
         return rsl;
