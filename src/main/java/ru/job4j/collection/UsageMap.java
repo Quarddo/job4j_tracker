@@ -8,7 +8,7 @@ public class UsageMap {
         hash.put("qq@mail.ru", "Teriushov Maksim");
         for (String key : hash.keySet()) {
             String value = hash.get(key);
-            System.out.println('\"' + key + '\"' + " - " + value );
+            System.out.println('\"' + key + '\"' + " - " + value);
         }
     }
 }
