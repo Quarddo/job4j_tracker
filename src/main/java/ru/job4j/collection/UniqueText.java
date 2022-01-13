@@ -10,7 +10,7 @@ public class UniqueText {
         HashSet<String> check = new HashSet<>();
         check.addAll(Arrays.asList(origin));
         for (String t : text) {
-            if(!check.contains(t)) {
+            if (!check.contains(t)) {
                 return false;
             }
         }
