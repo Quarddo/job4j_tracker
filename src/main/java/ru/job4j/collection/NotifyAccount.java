@@ -7,9 +7,7 @@ public class NotifyAccount {
     public static HashSet<Account> sent(List<Account> accounts) {
         HashSet<Account> rsl = new HashSet<Account>(accounts);
         for (Account account : accounts) {
-            if (!account.equals(accounts)) {
                 rsl.add(account);
-            }
         }
         return rsl;
     }
