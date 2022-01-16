@@ -29,7 +29,7 @@ public class JobTest {
                 new Job("Fix bug", 1),
                 new Job("Impl task", 0)
         );
-        assertThat(rsl, lessThan(1));
+        assertThat(rsl, lessThan(0));
     }
 
     @Test
