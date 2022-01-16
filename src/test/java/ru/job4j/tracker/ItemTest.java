@@ -9,8 +9,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-
 public class ItemTest {
+
     @Test
     public void whenSortedAsc() {
         List<Item> items = Arrays.asList(
