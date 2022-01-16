@@ -20,8 +20,8 @@ public class ItemTest {
         );
         items.sort(new ItemAscByName());
         List<Item> expected = Arrays.asList(
-                new Item(1, "one"),
                 new Item(5, "five"),
+                new Item(1, "one"),
                 new Item(3, "three")
         );
         assertThat(items, is(expected));
@@ -37,8 +37,8 @@ public class ItemTest {
         items.sort(new ItemDescByName());
         List<Item> expected = Arrays.asList(
                 new Item(3, "three"),
-                new Item(5, "five"),
-                new Item(1, "one")
+                new Item(1, "one"),
+                new Item(5, "five")
         );
         assertThat(items, is(expected));
     }
