@@ -23,11 +23,21 @@ public class JobTest {
     }
 
     @Test
+    public void whenComparatorAscByPriorityAndName() {
+        Comparator<Job > cmpNamePriority = new JobAscByPriority().thenComparing(new JobAscByName());
+        int rsl = cmpNamePriority.compare(
+                new Job("Fix", 1),
+                new Job("Fix bug", 1)
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
+    @Test
     public void whenComparatorAscByNameAndPriority() {
         Comparator<Job> cmpNamePriority = new JobAscByName().thenComparing(new JobAscByPriority());
         int rsl = cmpNamePriority.compare(
-                new Job("Fix bug", 1),
-                new Job("Impl task", 0)
+                new Job("Fix bug", 0),
+                new Job("Fix bug", 1)
         );
         assertThat(rsl, lessThan(0));
     }
