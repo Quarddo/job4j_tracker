@@ -24,7 +24,7 @@ public class JobTest {
 
     @Test
     public void whenComparatorAscByPriorityAndName() {
-        Comparator<Job > cmpNamePriority = new JobAscByPriority().thenComparing(new JobAscByName());
+        Comparator<Job> cmpNamePriority = new JobAscByPriority().thenComparing(new JobAscByName());
         int rsl = cmpNamePriority.compare(
                 new Job("Fix", 1),
                 new Job("Fix bug", 1)
