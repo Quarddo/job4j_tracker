@@ -29,3 +29,4 @@ public class PhoneDictionaryTest {
         assertThat(persons.isEmpty(), is(true));
     }
 }
+
