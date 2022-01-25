@@ -17,14 +17,14 @@ public class LinearFunctionTest {
     }
 
     @Test
-    public void whenLinearFunctionThenResults() {
+    public void whenQuadraticFunctionThenResults() {
         List<Double> result = LinearFunction.diapason(5, 8, x -> x * x);
         List<Double> expected = Arrays.asList(25D, 36D, 49D);
         assertThat(result, is(expected));
     }
 
     @Test
-    public void whenLinearFunctionThenExponentialResults() {
+    public void whenExponentialFunctionThenExponentialResults() {
         List<Double> result = LinearFunction.diapason(1, 4, x -> Math.pow(2, x));
         List<Double> expected = Arrays.asList(2D, 4D, 8D);
         assertThat(result, is(expected));
