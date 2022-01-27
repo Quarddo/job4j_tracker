@@ -15,6 +15,13 @@ public class Profiles {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Преобразовывает список профилей в список андресов(map(Profile::getAddress),
+     * сортирует элементы (sorted(Comparator.comparing(Address::getCity))
+     * и убирает дублирующие элементы (distinct())
+     * @param profiles список профилей
+     * @return возвращает отсортированный список, без повторных значений
+     */
     public static List<Address> collectSortWithoutDuplicate(List<Profile> profiles) {
         return profiles.stream().map(Profile::getAddress)
                 .sorted(Comparator.comparing(Address::getCity))
