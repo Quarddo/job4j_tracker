@@ -11,7 +11,7 @@ public class StudentLevel {
         return students.stream()
                 .filter(st -> Objects.nonNull(st))
                 .sorted((left, right) -> Integer.compare(right.getScore(), left.getScore()))
-                .takeWhile(st -> st.getScore() > bound )
+                .takeWhile(st -> st.getScore() > bound)
                 .collect(Collectors.toList());
     }
 }
