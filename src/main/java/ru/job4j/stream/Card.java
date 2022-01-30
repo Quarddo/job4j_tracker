@@ -19,6 +19,13 @@ public class Card {
         this.value = value;
     }
 
+    public String toString() {
+        return "Suit " + '\'' + suit
+                + '\'' + " "
+                + "Value " + '\''
+                + value + '\'';
+    }
+
     public static void main(String[] args) {
         Stream.of(Suit.values())
                 .flatMap(s -> Stream.of(Value.values())
