@@ -15,9 +15,9 @@ public class PhoneDictionary {
         Predicate<Person> surName = (s) -> s.getSurname().contains(key);
         Predicate<Person> phone = (p) -> p.getPhone().contains(key);
         Predicate<Person> adress = (a) -> a.getAddress().contains(key);
-        Predicate<Person> combine = name.or(surName).or(phone).or(adress);
+        var combine = name.or(surName).or(phone).or(adress);
         ArrayList<Person> result = new ArrayList<>();
-        for (Person person : persons) {
+        for (var person : persons) {
             if (combine.test(person)) {
                 result.add(person);
             }
