@@ -36,6 +36,6 @@ public class StreamUsage {
                 .map(task -> task.name + ", " + task.spent) /** записываем в Map */
                 /** .collect(Collectors.toList()) - прошедшие фильтрацию элементы
                   * записываются в list */
-                .forEach(System.out::println); /** выводим печать */у
+                .forEach(System.out::println); /** выводим печать */
     }
 }
