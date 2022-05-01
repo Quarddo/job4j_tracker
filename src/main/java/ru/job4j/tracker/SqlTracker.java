@@ -10,6 +10,14 @@ public class SqlTracker implements Store, AutoCloseable {
 
     private Connection cn;
 
+    public SqlTracker() {
+
+    }
+
+    public SqlTracker(Connection connection) {
+        this.cn = connection;
+    }
+
     public void init() {
         try (InputStream in = SqlTracker.class.getClassLoader().getResourceAsStream("app.properties")) {
             Properties config = new Properties();
@@ -54,9 +62,10 @@ public class SqlTracker implements Store, AutoCloseable {
     public boolean replace(int id, Item item) {
         boolean result = false;
         try (PreparedStatement ps = cn.prepareStatement(
-                "update items set name = ? where id = ?")) {
+                "update items set name = ?, created = ? where id = ?")) {
             ps.setString(1, item.getName());
-            ps.setInt(2, id);
+            ps.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
+            ps.setInt(3, id);
             result = ps.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,6 +86,11 @@ public class SqlTracker implements Store, AutoCloseable {
         return result;
     }
 
+    public Item getItemResultSet(ResultSet resultSet) throws SQLException {
+        return new Item(resultSet.getInt("id"),
+                resultSet.getString("name"));
+    }
+
     @Override
     public List<Item> findAll() {
         List<Item> items = new ArrayList<>();
@@ -84,9 +98,7 @@ public class SqlTracker implements Store, AutoCloseable {
                 "select * from items")) {
             try (ResultSet resultSet = ps.executeQuery()) {
                 while (resultSet.next()) {
-                    items.add(new Item(
-                            resultSet.getInt("id"),
-                            resultSet.getString("name")));
+                    items.add(getItemResultSet(resultSet));
                 }
             }
         } catch (Exception e) {
@@ -103,9 +115,7 @@ public class SqlTracker implements Store, AutoCloseable {
             ps.setString(1, key);
             try (ResultSet resultSet = ps.executeQuery()) {
                 while (resultSet.next()) {
-                    items.add(new Item(
-                            resultSet.getInt("id"),
-                            resultSet.getString("name")));
+                    items.add(getItemResultSet(resultSet));
                 }
             }
         } catch (Exception e) {
@@ -116,15 +126,13 @@ public class SqlTracker implements Store, AutoCloseable {
 
     @Override
     public Item findById(int id) {
-        Item items = new Item();
+        Item items = null;
         try (PreparedStatement ps = cn.prepareStatement(
                 "select * from items where id = ?")) {
             ps.setInt(1, id);
             try (ResultSet resultSet = ps.executeQuery()) {
-                while (resultSet.next()) {
-                    items = new Item(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name"));
+                if (resultSet.next()) {
+                    items = getItemResultSet(resultSet);
                 }
             }
         } catch (Exception e) {
