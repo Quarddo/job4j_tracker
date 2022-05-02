@@ -88,7 +88,8 @@ public class SqlTracker implements Store, AutoCloseable {
 
     public Item getItemResultSet(ResultSet resultSet) throws SQLException {
         return new Item(resultSet.getInt("id"),
-                resultSet.getString("name"));
+                resultSet.getString("name"),
+                resultSet.getTimestamp("created").toLocalDateTime());
     }
 
     @Override
