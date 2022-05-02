@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
 
 public class SqlTrackerTest {
 
-    static Connection connection;
+    private static Connection connection;
 
     @BeforeClass
     public static void initConnection() {
@@ -77,6 +77,15 @@ public class SqlTrackerTest {
         tracker.add(itemOne);
         tracker.add(itemTwo);
         assertTrue(tracker.delete(itemTwo.getId()));
+    }
+
+    @Test
+    public void whenDeletedByIdAndResultIsNull() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("one");
+        tracker.add(item);
+        tracker.delete(item.getId());
+        assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
 
     @Test
