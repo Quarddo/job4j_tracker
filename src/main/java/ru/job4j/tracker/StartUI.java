@@ -36,8 +36,10 @@ public class StartUI {
         SqlTracker sqlTracker = new SqlTracker();
         sqlTracker.init();
         List<UserAction> actions = List.of(
-                new CreateAction(output), new ShowAllAction(output), new EditAction(output),
-                new DeleteAction(output), new FindIdAction(output), new FindNameActions(output),
+                new CreateAction(output),
+                new CreateManyItems(output), new ShowAllAction(output), new EditAction(output),
+                new DeleteAction(output),
+                new DeleteManyItems(output), new FindIdAction(output), new FindNameActions(output),
                 new ExitAction(output)
         );
         new StartUI(output).init(input, sqlTracker, actions);
